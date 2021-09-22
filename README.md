@@ -1,36 +1,56 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+This package integrates some functionality with the E-goi marketing automation tool
 
 ## Features
 
-This package can add a contact to your egoi list, and also get a contact from your egoi list.
+You can add contacts to the egoi list using the addContact() method
+
+You can get contacts from your list using the getContact() method
+
+You can update your entire contact list using the updateAllContact() method
+
+You can update information for a specific contact using the updateContact() method
 
 ## Getting started
 
-You just need a API Key of E-goi
+You just need a API Key of E-goi and your List ID
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
-
 ```dart
-const like = 'sample';
+//set your api key
+Egoi egoi = Egoi(apiKey: 'YOUR_API_KEY');
+
+// Exemple Data
+var data = {
+    "base": {
+      "status": "active",
+      "first_name": "John2",
+      "last_name": "Doe2",
+      "birth_date": "1975-01-10",
+      "language": "en",
+      "email": "example2@e-goi.com",
+      "cellphone": "",
+      "phone": "",
+      "push_token_android": [],
+      "push_token_ios": []
+    }
+  };
+
+//add contact
+egoi.addContact(data: data, listID: YOUR_ID);
+
+//get contact
+egoi.getContact(listID: listID, contactID: contactID);
+
+//update all contacts
+egoi.updateAllContacts(listID: listID);
+
+//update contact
+egoi.updateContact(listID: listID, contactID: contactID);
+
 ```
 
 ## Additional information
 
-under construction
+GNU GENERAL PUBLIC LICENSE
+Version 2, June 1991

@@ -1,6 +1,5 @@
 library egoi_flutter;
 
-
 import 'package:dio/dio.dart';
 
 class Egoi {
@@ -8,25 +7,8 @@ class Egoi {
   Egoi({
     required this.apiKey,
   });
-  final Dio _dio = Dio();
-  //add a new contact in egoi list
 
-  /*data exemple:
-    var data = {
-    "base": {
-      "status": "active",
-      "first_name": "John2",
-      "last_name": "Doe2",
-      "birth_date": "1975-01-10",
-      "language": "en",
-      "email": "example2@e-goi.com",
-      "cellphone": "",
-      "phone": "",
-      "push_token_android": [],
-      "push_token_ios": []
-    }
-  };
-  */
+  final Dio _dio = Dio();
 
   Future addContact({required data, required int listID}) async {
     try {
@@ -43,7 +25,6 @@ class Egoi {
     }
   }
 
-  //get a contact by id
   Future getContact({required int listID, required String contactID}) async {
     try {
       var response = await _dio.get(
@@ -52,9 +33,43 @@ class Egoi {
           headers: {"Apikey": apiKey, "Content-Type": "application/json"},
         ),
       );
-      return response.toString();
+      return response;
     } catch (e) {
       throw e.toString();
     }
   }
+
+  Future updateAllContacts({required int listID}) async {
+    try {
+      var response = await _dio.post(
+        'https://api.egoiapp.com/lists/$listID/contacts/actions/update',
+        options: Options(
+          headers: {"Apikey": apiKey, "Content-Type": "application/json"},
+        ),
+      );
+      return response;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+
+  Future updateContact({required int listID, required String contactID}) async {
+    try {
+      var response = await _dio.post(
+        'https://api.egoiapp.com/lists/$listID/contacts/$contactID',
+        options: Options(
+          headers: {"Apikey": apiKey, "Content-Type": "application/json"},
+        ),
+      );
+      return response;
+    } catch (e) {
+      throw e.toString();
+    }
+  }
+}
+
+main() {
+  Egoi egoi = Egoi(apiKey: 'YOUR_API_KEY');
+
+  
 }
