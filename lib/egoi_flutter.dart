@@ -68,8 +68,3 @@ class Egoi {
   }
 }
 
-main() {
-  Egoi egoi = Egoi(apiKey: 'YOUR_API_KEY');
-
-  
-}
