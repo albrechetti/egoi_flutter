@@ -6,3 +6,9 @@
 
 * update all contacts
 * update contact
+
+## 1.0.1
+
+* info updates
+
+
