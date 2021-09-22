@@ -20,7 +20,7 @@ You just need a API Key of E-goi and your List ID
 //set your api key
 Egoi egoi = Egoi(apiKey: 'YOUR_API_KEY');
 
-// Exemple Data
+// Example Data
 var data = {
     "base": {
       "status": "active",

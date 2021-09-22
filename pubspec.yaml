@@ -1,5 +1,5 @@
 name: egoi_flutter
-description: An integration package with E-goi.
+description: This package integrates some features with the E-goi marketing automation tool, you can add new contacts, read information from contacts in your list, update your entire list or just a single contact.
 version: 1.0.0
 homepage: https://github.com/albrechetti/egoi_flutter
 
